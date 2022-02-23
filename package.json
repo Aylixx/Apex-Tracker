@@ -1,0 +1,19 @@
+{
+  "name": "apex-tracker",
+  "version": "1.0.0",
+  "description": "App for tracking Apex Legends stats.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "author": "Colton Aylix",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
