@@ -1,0 +1,295 @@
+/* ---------------------------------------------HOME PAGE--------------------------------------------- */
+.home-page {
+    margin: 0;
+    padding: 0;
+    background: rgb(170, 42, 53);
+    display: grid;
+    grid-template-rows: 95vh 5vh;
+}
+
+.home-page-main {
+    background-image: url(images/Test.png), url(images/BG.png);
+    background-repeat: no-repeat;
+    background-size: 100vh, cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    border-bottom: 7px solid white;
+    border-left: white;
+    border-radius: 0 0 0 150px;
+}
+
+.all-search-items {
+    margin: 300px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.platform {
+    width: 50px;
+    height: 50px;
+    background: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.platform a {
+    width: 50px;
+    height: 50px;
+}
+
+#xbl {
+    border: 1px solid black;
+    border-radius: 10px 0 0 10px;
+    background-image: url(images/xbox-black.png);
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: center;
+}
+
+#psn {
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: none;
+    background-image: url(images/ps-black.png);
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center;
+}
+
+#pc {
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: none;
+    background-image: url(images/pc-black.png);
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center;
+}
+
+#xbl:hover {
+    /* background: green; */
+    background: rgb(65, 65, 65);
+    width: 75px;
+    background-image: url(images/xbox-grey.png);
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: center;
+}
+
+#psn:hover {
+    /* background: blue; */
+    background: rgb(65, 65, 65);
+    width: 75px;
+    background-image: url(images/ps-grey.png);
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center;
+}
+
+#pc:hover {
+    /* background: coral; */
+    background: rgb(65, 65, 65);
+    width: 75px;
+    background-image: url(images/pc-grey.png);
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center;
+}
+
+#searchBar {
+    font-size: large;
+    padding-left: 15px;
+    padding-right: 10px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    height: 50px;
+    width: 33vw;
+    background: white;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-radius: 0 10px 10px 0;
+}
+
+#search-text {
+    padding: 0 0 0 10px;
+    opacity: 50%;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+/* ---------------------------------------------LIFETIME STATS--------------------------------------------- */
+.lifetime-stat-page {
+    margin: 0;
+    padding: 0;
+    background-image: url(images/BG.png);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    border-left: 7px white solid;
+    border-right: 7px white solid;
+    background: rgb(65, 65, 65);
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: 15vw 55vw;
+    grid-template-rows: 10vh minmax(85vh, auto) 5vh;
+    grid-template-areas:    "header header"
+                            "aside main"
+                            "footer footer";
+}
+
+header {
+    /* padding: 0 1em; */
+    grid-area: header;
+    width: auto;
+    background: rgb(201, 50, 50);
+    display: grid;
+    grid-template-columns: 15vw 55vw;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    width: 7vw;
+}
+
+.header-search-items {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+aside {
+    border-radius: 10px;
+    grid-area: aside;
+    margin: 0 0 0 1em;
+    background: rgb(94, 94, 94);
+}
+
+aside h3 {
+    font-size: 24px;
+    border-radius: 10px 10px 0 0;
+    margin: 0;
+    padding: 1.5em;
+    background: rgb(121, 121, 121);
+    display: flex;
+    justify-content: center;
+}
+
+.legends-list {
+    height: 92%;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.legends-list li {
+    padding: fill;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.legends-list li:hover {
+    color: rgb(201, 50, 50);
+    font-size: 24px;
+}
+
+.lifetime-stat-main {
+    border-radius: 10px;
+    grid-area: main;  
+    margin: 0 1em 0 0;
+    padding: 0 1em 1em 1em;
+    background: rgb(94, 94, 94);
+}
+
+.fav-legend {
+    background: rgb(121, 121, 121);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.fav-legend img {
+    width: 18vw;
+}
+
+.main-stats {
+    border-radius: 10px;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.main-stats div {
+    border-radius: 7px;
+    background: rgb(121, 121, 121);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-stats div h4{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+}
+
+.main-stats div p{
+    margin: 0 0 1em 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.match-history div {
+    height: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.match-history div:nth-child(odd) {
+    background: rgb(121, 121, 121);
+}
+.match-history div:nth-child(even) {
+    background: rgb(100, 100, 100);
+}
+
+.lifetime-stat-footer {
+    grid-area: footer;
+    width: auto;
+    background: rgb(201, 50, 50);
+}
+
+/* ---------------------------------------------REFERENCE PAGE--------------------------------------------- */
+
+.reference-page {
+    background: rgb(201, 50, 50);
+    display: flex;
+    font-size: large;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}

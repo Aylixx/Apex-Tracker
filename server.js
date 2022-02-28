@@ -1,16 +1,20 @@
 const express = require('express')
 const app = express()
+const dotenv = require('dotenv');
 
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').load()
-}
+//load .env
+dotenv.config({ path: './.env' });
 
 app.set('view engine', 'ejs')
-app.use(express.static('public'))
+
+app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/public/styles'))
 
 const indexRouter = require('./routes/index')
+const profileRouter = require('./routes/profile')
 
 app.use('/', indexRouter)
+app.use('/profile', profileRouter)
 
 const port = process.env.PORT || 8000;
 

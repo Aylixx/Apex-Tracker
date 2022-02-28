@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lifetime Stats</title>
+    <link rel="stylesheet" href="/styles.css">
+
+</head>
+
+<body class="lifetime-stat-page">
+    <div class="container">
+        <header>
+            <section class="logo">
+                <a href="/"><img src="/images/LOGO.png" alt=""></a>
+            </section>
+            <section class="header-search-items">
+
+                <div class="platform" id="xbl">
+                    <a href="index.html"></a>
+                </div>
+                <div class="platform" id="psn">
+                    <a href="index.html"></a>
+                </div>
+                <div class="platform" id="pc">
+                    <a href="index.html"></a>
+                </div>
+
+                <div class="search-bar">
+                    <!-- <p id="search-text">Search</p> -->
+                    <input type="text" name="searchBar" id="searchBar" placeholder="Username">
+                </div>
+
+            </section>
+        </header>
+
+        <aside>
+            <h3>Legends</h3>
+            <ul class="legends-list">
+                <li class="legends" id="ash">Ash</li>
+                <li class="legends" id="bangalore">Bangalore</li>
+                <li class="legends" id="bloodhound">Bloodhound</li>
+                <li class="legends" id="caustic">Caustic</li>
+                <li class="legends" id="crypto">Crypto</li>
+                <li class="legends" id="fuse">Fuse</li>
+                <li class="legends" id="gibraltar">Gibraltar</li>
+                <li class="legends" id="horizon">Horizon</li>
+                <li class="legends" id="lifeline">Lifeline</li>
+                <li class="legends" id="loba">Loba</li>
+                <li class="legends" id="mirage">Mirage</li>
+                <li class="legends" id="octane">Octane</li>
+                <li class="legends" id="pathfinder">Pathfinder</li>
+                <li class="legends" id="rampart">Rampart</li>
+                <li class="legends" id="revenant">Revenant</li>
+                <li class="legends" id="seer">Seer</li>
+                <li class="legends" id=valkyrie">Valkyrie</li>
+                <li class="legends" id="wattson">Wattson</li>
+                <li class="legends" id="wraith">Wraith</li>
+            </ul>
+        </aside>
+
+        <main class="lifetime-stat-main">
+            <h1 id="username">
+                <%= api.data.platformInfo.platformUserId %>
+            </h1>
+            <h2>
+                Level: <%= api.data.segments[0].stats.level.displayValue %>
+            </h2>
+            <section class="fav-legend">
+                <h2>Current Legend</h2>
+                <img src="/images/Ash-Portrait.png" alt="">
+                <h3>Ash</h3>
+            </section>
+
+            <h2>Lifetime Stats</h2>
+            <section class="main-stats">
+                <div id="wins">
+                    <h4>Wins</h4>
+                    <p>2</p>
+                </div>
+                <div id="kills">
+                    <h4>Kills</h4>
+                    <p>134</p>
+                </div>
+                <div id="deaths">
+                    <h4>Deaths</h4>
+                    <p>73</p>
+                </div>
+                <div id="kdr">
+                    <h4>KDR</h4>
+                    <p>1.84</p>
+                </div>
+                <div id="win-percentage">
+                    <h4>Win%</h4>
+                    <p>1.4%</p>
+                </div>
+                <div id="knocks">
+                    <h4>Knocks</h4>
+                    <p>151</p>
+                </div>
+                <div id="avg-life-time">
+                    <h4>Avg. Life</h4>
+                    <p>6m 34s</p>
+                </div>
+                <div id="assists">
+                    <h4>Assists</h4>
+                    <p>56</p>
+                </div>
+            </section>
+            <h2>Recent Matches</h2>
+            <section class="match-history">
+                <div>NO DATA</div>
+                <div>NO DATA</div>
+                <div>NO DATA</div>
+                <div>NO DATA</div>
+                <div>NO DATA</div>
+                <div>NO DATA</div>
+                <div>NO DATA</div>
+                <div>NO DATA</div>
+                <div>NO DATA</div>
+                <div>NO DATA</div>
+            </section>
+        </main>
+
+        <footer class="lifetime-stat-footer">
+            <a href="/references">References</a>
+        </footer>
+    </div>
+</body>
+
+</html>
