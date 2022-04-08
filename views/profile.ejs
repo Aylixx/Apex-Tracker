@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lifetime Stats</title>
     <link rel="stylesheet" href="/styles.css">
-
+    <script defer src="/searchbar.js"></script>
+    <script defer src="/legends.js"></script>
 </head>
 
 <body class="lifetime-stat-page">
@@ -18,37 +19,29 @@
             </section>
             <section class="header-search-items">
 
-                <div class="platform" id="xbl">
-                    <a href="index.html"></a>
-                </div>
-                <div class="platform" id="psn">
-                    <a href="index.html"></a>
-                </div>
-                <div class="platform" id="pc">
-                    <a href="index.html"></a>
-                </div>
+                <input type="button" class="platform" id="xbl" name="xbl">
+                <input type="button" class="platform" id="psn" name="psn">
+                <input type="button" class="platform" id="pc" name="origin">
 
-                <div class="search-bar">
-                    <!-- <p id="search-text">Search</p> -->
-                    <input type="text" name="searchBar" id="searchBar" placeholder="Username">
-                </div>
+                <input type="search" id="searchBar" placeholder="Pick a platform and enter a username">
 
             </section>
         </header>
 
-        <aside>
+        <!-- <aside>
             <h3>Legends</h3>
             <ul class="legends-list">
-                <li class="legends" id="ash">Ash</li>
+                <li class="legends" id="ash" value="1">Ash</li>
                 <li class="legends" id="bangalore">Bangalore</li>
                 <li class="legends" id="bloodhound">Bloodhound</li>
-                <li class="legends" id="caustic">Caustic</li>
+                <li class="legends" id="caustic" value="">Caustic</li>
                 <li class="legends" id="crypto">Crypto</li>
                 <li class="legends" id="fuse">Fuse</li>
                 <li class="legends" id="gibraltar">Gibraltar</li>
                 <li class="legends" id="horizon">Horizon</li>
                 <li class="legends" id="lifeline">Lifeline</li>
                 <li class="legends" id="loba">Loba</li>
+                <li class="legends" id="loba">Mad Maggie</li>
                 <li class="legends" id="mirage">Mirage</li>
                 <li class="legends" id="octane">Octane</li>
                 <li class="legends" id="pathfinder">Pathfinder</li>
@@ -59,73 +52,246 @@
                 <li class="legends" id="wattson">Wattson</li>
                 <li class="legends" id="wraith">Wraith</li>
             </ul>
-        </aside>
+        </aside> -->
 
         <main class="lifetime-stat-main">
             <h1 id="username">
                 <%= api.data.platformInfo.platformUserId %>
             </h1>
-            <h2>
-                Level: <%= api.data.segments[0].stats.level.displayValue %>
+            <h2 id="level-main">
+                <% let lvl=api.data.segments[0].stats.level.value %>
+                    <% if (lvl> 500) {lvl = 500} %>
+                        Level: <%= lvl %>
             </h2>
+            <h4 id="actual">
+                Actual: <%= api.data.segments[0].stats.level.displayValue %>
+            </h4>
+
             <section class="fav-legend">
-                <h2>Current Legend</h2>
-                <img src="/images/Ash-Portrait.png" alt="">
-                <h3>Ash</h3>
+                <h2 id="currentLgndTitle">Current Legend</h2>
+
+                <% const currentLgnd=api.data.segments[1].metadata.name %>
+                    <% const currentLgndImg=api.data.segments[1].metadata.imageUrl %>
+                        <img src="<%= currentLgndImg %>" alt="">
+
+                        <h3 id="lgndName">
+                            <%= currentLgnd %>
+                        </h3>
+
+                        <h3 id="rankBRtitle">BR Rank</h3>
+
+                        <% const brRankImg=api.data.segments[0].stats.rankScore.metadata.iconUrl %>
+                            <% const brRankName=api.data.segments[0].stats.rankScore.metadata.rankName %>
+                                <% const brRP=api.data.segments[0].stats.rankScore.displayValue %>
+                                    <img src="<%= brRankImg %>" alt="" id="rankBRimage">
+
+                                    <h4 id="brRankName">
+                                        <%= brRankName %>
+                                    </h4>
+                                    <h4 id="brRP">
+                                        RP: <%= brRP %>
+                                    </h4>
+
+                                    <h3 id="arenaRankTitle">Arena Rank</h3>
+
+                                    <% const arenaRankImg=api.data.segments[0].stats.arenaRankScore.metadata.iconUrl %>
+                                        <% const
+                                            arenaRankName=api.data.segments[0].stats.arenaRankScore.metadata.rankName %>
+                                            <% const arenaRP=api.data.segments[0].stats.arenaRankScore.displayValue %>
+                                                <img src="<%= arenaRankImg %>" alt="" id="arenaRankImage">
+
+                                                <h4 id="arenaRankName">
+                                                    <%= arenaRankName %>
+                                                </h4>
+                                                <h4 id="arenaRP">
+                                                    AP: <%= arenaRP %>
+                                                </h4>
             </section>
 
-            <h2>Lifetime Stats</h2>
+            <h2 id="lifetime-stat-title">Lifetime Stats</h2>
+            <h4 id="matches-played-title">
+                <% try { const matchesPlayed=api.data.segments[0].stats.matchesPlayed.displayValue %>
+                    Matches Played: <%= matchesPlayed %>
+                        <% } catch(err) { %>
+                            Matches Played: --
+                            <% } %>
+            </h4>
             <section class="main-stats">
                 <div id="wins">
-                    <h4>Wins</h4>
-                    <p>2</p>
+                    <h4>Full Squad Wins</h4>
+                    <p>
+                        <% try { const wwfs=api.data.segments[0].stats.winsWithFullSquad.displayValue %>
+                            <%= wwfs %>
+                                <% } catch(err) { %>
+                                    --
+                                    <% } %>
+                    </p>
                 </div>
                 <div id="kills">
                     <h4>Kills</h4>
-                    <p>134</p>
+                    <p>
+                        <%= api.data.segments[0].stats.kills.displayValue %>
+                    </p>
                 </div>
-                <div id="deaths">
-                    <h4>Deaths</h4>
-                    <p>73</p>
+                <div id="kakl">
+                    <h4>Kills as Kill Leader</h4>
+                    <p>
+                        <% try { const kakl=api.data.segments[0].stats.killsAsKillLeader.displayValue %>
+                            <%= kakl %>
+                                <% } catch(err) { %>
+                                    --
+                                    <% } %>
+                    </p>
                 </div>
-                <div id="kdr">
-                    <h4>KDR</h4>
-                    <p>1.84</p>
+                <div id="damage">
+                    <h4>Damage</h4>
+                    <p>
+                        <% try { const damage=api.data.segments[0].stats.damage.displayValue %>
+                            <%= damage %>
+                                <% } catch(err) { %>
+                                    --
+                                    <% } %>
+                    </p>
                 </div>
-                <div id="win-percentage">
-                    <h4>Win%</h4>
-                    <p>1.4%</p>
+                <div id="tptt">
+                    <h4>Times Placed Top 3</h4>
+                    <p>
+                        <% try { const tptt=api.data.segments[0].stats.timesPlacedtop3.displayValue %>
+                            <%= tptt %>
+                                <% } catch(err) { %>
+                                    --
+                                    <% } %>
+                    </p>
                 </div>
-                <div id="knocks">
-                    <h4>Knocks</h4>
-                    <p>151</p>
+                <div id="kills-per-match">
+                    <h4>Kills Per Match</h4>
+                    <p>
+                        <% try { const kpm=api.data.segments[0].stats.killsPerMatch.displayValue %>
+                            <%= kpm %>
+                                <% } catch(err) { %>
+                                    --
+                                    <% } %>
+                    </p>
                 </div>
-                <div id="avg-life-time">
-                    <h4>Avg. Life</h4>
-                    <p>6m 34s</p>
+                <div id="winning-kills">
+                    <h4>Winning Kills</h4>
+                    <p>
+                        <% try { const winnningKills=api.data.segments[0].stats.winningKills.displayValue %>
+                            <%= winningKills %>
+                                <% } catch(err) { %>
+                                    --
+                                    <% } %>
+                    </p>
                 </div>
-                <div id="assists">
-                    <h4>Assists</h4>
-                    <p>56</p>
+                <div id="headshots">
+                    <h4>Headshots</h4>
+                    <p>
+                        <% try { const headshots=api.data.segments[0].stats.headshots.displayValue %>
+                            <%= headshots %>
+                                <% } catch(err) { %>
+                                    --
+                                    <% } %>
+                    </p>
                 </div>
             </section>
             <h2>Recent Matches</h2>
             <section class="match-history">
-                <div>NO DATA</div>
-                <div>NO DATA</div>
-                <div>NO DATA</div>
-                <div>NO DATA</div>
-                <div>NO DATA</div>
-                <div>NO DATA</div>
-                <div>NO DATA</div>
-                <div>NO DATA</div>
-                <div>NO DATA</div>
-                <div>NO DATA</div>
+                <% const items=sessions.data.items%>
+                    <% let limit=10 %>
+                        <% if (items !=0) { %>
+                            <% for (let i of items) { %>
+                                <% const matches=i.matches %>
+                                    <% for (m of matches) { %>
+                                        <div>
+                                            <!-- LEGEND ICON -->
+                                            <% try { const legendPortrait=m.metadata.legendPortraitImageUrl.displayValue
+                                                %>
+                                                <img src="<%= legendPortrait %>" alt="">
+                                                <% } catch(err) { %>
+                                                    --
+                                                    <% } %>
+                                                        <!-- LEGEND -->
+                                                        <% try { const legendUsed=m.metadata.legend.displayValue %>
+                                                            <p id="legendUsed">LEGEND:
+                                                                <%= legendUsed %>
+                                                            </p>
+                                                            <% } catch(err) { %>
+                                                                <p id="legendUsed">LEGEND: --
+                                                                </p>
+                                                                <% } %>
+                                                                    <!-- KILLS -->
+                                                                    <% try { const
+                                                                        killsPerGame=m.stats.kills.displayValue %>
+                                                                        <p id="killsPerGame">KILLS:
+                                                                            <%= killsPerGame %>
+                                                                        </p>
+                                                                        <% } catch(err) { %>
+                                                                            <p id="killsPerGame">KILLS: --
+                                                                            </p>
+                                                                            <% } %>
+                                                                                <!-- DAMAGE -->
+                                                                                <% try { const
+                                                                                    matchDamage=m.stats.damage.displayValue
+                                                                                    %>
+                                                                                    <p id="matchDamage">DAMAGE: <%=
+                                                                                            matchDamage %>
+                                                                                    </p>
+                                                                                    <% } catch(err) { %>
+                                                                                        <p id="matchDamage">DAMAGE: --
+                                                                                        </p>
+                                                                                        <% } %>
+                                                                                            <!-- RANK SCORE CHANGE -->
+                                                                                            <% try { const
+                                                                                                rankChange=m.stats.rankScoreChange.displayValue
+                                                                                                %>
+                                                                                                <p id="rankChange">RANK
+                                                                                                    CHANGE:
+                                                                                                    <%= rankChange %>
+                                                                                                </p>
+                                                                                                <% } catch(err) { %>
+                                                                                                    <p id="rankChange">
+                                                                                                        RANK CHANGE: --
+                                                                                                    </p>
+                                                                                                    <% } %>
+                                                                                                        <!-- RANK SCORE -->
+                                                                                                        <% try { const
+                                                                                                            rankScore=m.stats.rankScore.displayValue
+                                                                                                            %>
+                                                                                                            <p
+                                                                                                                id="rankScore">
+                                                                                                                RANK
+                                                                                                                SCORE:
+                                                                                                                <%= rankScore
+                                                                                                                    %>
+                                                                                                            </p>
+                                                                                                            <% } catch(err)
+                                                                                                                { %>
+                                                                                                                <p
+                                                                                                                    id="rankScore">
+                                                                                                                    RANK
+                                                                                                                    SCORE:
+                                                                                                                    --
+                                                                                                                </p>
+                                                                                                                <% } %>
+
+                                        </div>
+
+                                        <% limit-- %>
+                                            <% if (limit==0) {break} %>
+                                                <% } %>
+                                                    <% if (limit==0) {break} %>
+                                                        <% }} else { %>
+                                                            <div>
+                                                                No matches to show.
+                                                            </div>
+                                                            <% } %>
+
             </section>
         </main>
 
         <footer class="lifetime-stat-footer">
-            <a href="/references">References</a>
+            <a href="/overview" id="link1">Project Overview</a>
+            <a href="/references" id="link2">References</a>
         </footer>
     </div>
 </body>

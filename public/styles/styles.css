@@ -10,13 +10,27 @@
 .home-page-main {
     background-image: url(images/Test.png), url(images/BG.png);
     background-repeat: no-repeat;
-    background-size: 100vh, cover;
+    background-size: clamp(950px, 100vw, 1000px), cover;
     background-position: center;
     display: flex;
     justify-content: center;
     border-bottom: 7px solid white;
     border-left: white;
     border-radius: 0 0 0 150px;
+}
+
+@media (max-width: 700px) {
+    .home-page-main {
+        background-image: url(images/Test.png), url(images/BG.png);
+        background-repeat: no-repeat;
+        background-size: clamp(300px, 45vw, 300px), cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        border-bottom: 7px solid white;
+        border-left: white;
+        border-radius: 0 0 0 150px;
+    }
 }
 
 .all-search-items {
@@ -28,7 +42,7 @@
 
 .platform {
     width: 50px;
-    height: 50px;
+    height: clamp(35px, 3vw, 50px);
     background: grey;
     display: flex;
     justify-content: center;
@@ -103,13 +117,13 @@
 }
 
 #searchBar {
-    font-size: large;
+    font-size: clamp(15px, 2vw, 20px);
     padding-left: 15px;
     padding-right: 10px;
     border-top: 1px solid black;
     border-right: 1px solid black;
     border-bottom: 1px solid black;
-    height: 50px;
+    height: clamp(35px, 3vw, 50px);
     width: 33vw;
     background: white;
     display: flex;
@@ -127,7 +141,27 @@ footer {
     display: flex;
     justify-content: center;
 }
+
+footer a {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer #link1 {
+    padding-right: 15px;
+}
+
+footer #link2 {
+    padding-left: 15px;
+}
+
+
 /* ---------------------------------------------LIFETIME STATS--------------------------------------------- */
+
 .lifetime-stat-page {
     margin: 0;
     padding: 0;
@@ -146,9 +180,23 @@ footer {
     grid-gap: 1em;
     grid-template-columns: 15vw 55vw;
     grid-template-rows: 10vh minmax(85vh, auto) 5vh;
-    grid-template-areas:    "header header"
-                            "aside main"
-                            "footer footer";
+    grid-template-areas: "header header"
+        "main main"
+        "footer footer";
+}
+
+@media (max-width: 700px) {
+    .container {
+        border-left: 7px white solid;
+        border-right: 7px white solid;
+        background: rgb(65, 65, 65);
+        display: grid;
+        grid-template-columns: 70vw;
+        grid-template-rows: 15vh minmax(80vh, auto) 5vh;
+        grid-template-areas: "header"
+            "main"
+            "footer";
+    }
 }
 
 header {
@@ -160,14 +208,28 @@ header {
     grid-template-columns: 15vw 55vw;
 }
 
-.logo{
+@media (max-width: 700px) {
+    header {
+        display: grid;
+        grid-template-rows: 8vh 5vh;
+        grid-template-columns: 70vw;
+    }
+}
+
+.logo {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .logo img {
-    width: 7vw;
+    width: clamp(50px, 7vw, 100px);
+}
+
+@media (max-width: 700px) {
+    .logo img {
+        width: clamp(90px, 3vw, 125px);
+    }
 }
 
 .header-search-items {
@@ -176,7 +238,16 @@ header {
     align-items: center;
 }
 
-aside {
+@media (max-width: 700px) {
+    .header-search-items {
+        margin: 1em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* aside {
     border-radius: 10px;
     grid-area: aside;
     margin: 0 0 0 1em;
@@ -185,6 +256,7 @@ aside {
 
 aside h3 {
     font-size: 24px;
+    border-bottom: 1px rgb(100, 100, 100) solid;
     border-radius: 10px 10px 0 0;
     margin: 0;
     padding: 1.5em;
@@ -194,46 +266,258 @@ aside h3 {
 }
 
 .legends-list {
-    height: 92%;
+    height: auto;
     padding: 0;
+    margin: 0;
     list-style-type: none;
-    display: flex;
+    display: grid;
+    grid-area: aside;
+    grid-auto-rows: minmax(89px, auto);
+    /* display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
-}
+    align-items: center; */
+/* }
 
 .legends-list li {
+    border-bottom: 1px rgb(121, 121, 121) solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: fill;
     font-size: 20px;
     font-weight: bold;
     transition: 0.5s;
 }
 
+.legends-list #wraith {
+    border: none;
+    border-radius: 0 0 10px 10px;
+}
+
 .legends-list li:hover {
+    background-color: rgb(121, 121, 121);
     color: rgb(201, 50, 50);
     font-size: 24px;
-}
+} */
 
 .lifetime-stat-main {
     border-radius: 10px;
-    grid-area: main;  
-    margin: 0 1em 0 0;
+    grid-area: main;
+    margin: 0 1em 0 1em;
     padding: 0 1em 1em 1em;
     background: rgb(94, 94, 94);
+}
+
+.lifetime-stat-main #username {
+    font-size: clamp(25px, 3.5vw, 35px);
+}
+
+.lifetime-stat-main #level-main {
+    font-size: clamp(15px, 2.5vw, 25px);
+}
+
+.lifetime-stat-main #actual {
+    font-size: clamp(11px, 1.5vw, 16px);
 }
 
 .fav-legend {
     background: rgb(121, 121, 121);
     border-radius: 10px;
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    grid-template-rows: 10% 20% 40% 15% 15%;
+    grid-template-areas: "title title title"
+        "rankBRtitle legend rankAtitle"
+        "rankBRlogo legend rankAlogo"
+        "rankBRrank legend rankArank"
+        "name name name";
+}
+
+@media (max-width: 700px) {
+    .fav-legend {
+        height: 75vh;
+        background: rgb(121, 121, 121);
+        border-radius: 10px;
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: 5% 40% 5% 5% 15% 5% 5% 15% 5%;
+        grid-template-areas: "title"
+            "legend"
+            "name"
+            "rankBRtitle"
+            "rankBRlogo"
+            "rankBRrank"
+            "rankAtitle"
+            "rankAlogo"
+            "rankArank"
+    }
+}
+
+@media (max-width: 450px) {
+    .fav-legend {
+        height: 60vh;
+        background: rgb(121, 121, 121);
+        border-radius: 10px;
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: 5% 40% 5% 5% 15% 5% 5% 15% 5%;
+        grid-template-areas: "title"
+            "legend"
+            "name"
+            "rankBRtitle"
+            "rankBRlogo"
+            "rankBRrank"
+            "rankAtitle"
+            "rankAlogo"
+            "rankArank"
+    }
+}
+
+.fav-legend #currentLgndTitle {
+    grid-area: title;
+    font-size: clamp(15px, 2vw, 24px);
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
 }
 
 .fav-legend img {
-    width: 18vw;
+    grid-area: legend;
+    margin: auto;
+    width: clamp(150px, 18vw, 500px);
+}
+
+@media (max-width: 700px) {
+    .fav-legend img {
+        grid-area: legend;
+        display: flex;
+        margin: auto;
+        width: clamp(50px, 50vw, 250px);
+    }
+}
+
+.fav-legend #lgndName {
+    grid-area: name;
+    font-size: clamp(13px, 1.5vw, 20px);
+    display: flex;
+    margin: 8px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+@media (max-width: 700px) {
+    .fav-legend #lgndName {
+        grid-area: name;
+        font-size: clamp(13px, 1.5vw, 20px);
+        display: flex;
+        margin: 0;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+}
+
+.fav-legend #rankBRtitle {
+    grid-area: rankBRtitle;
+    font-size: clamp(13px, 1.5vw, 20px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+@media (max-width: 700px) {
+    .fav-legend #rankBRtitle {
+        grid-area: rankBRtitle;
+        font-size: clamp(13px, 1.5vw, 20px);
+        display: flex;
+        margin: 0;
+        justify-content: center;
+        align-items: flex-end;
+    }
+}
+
+.fav-legend #rankBRimage {
+    grid-area: rankBRlogo;
+    display: flex;
+    justify-content: center;
+    width: 10vw;
+}
+
+@media (max-width: 700px) {
+    .fav-legend #rankBRimage {
+        grid-area: rankBRlogo;
+        display: flex;
+        justify-content: center;
+        width: clamp(75px, 10vw, 100px);
+    }
+}
+
+.fav-legend #brRankName {
+    grid-area: rankBRrank;
+    font-size: clamp(10px, 1.5vw, 15px);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.fav-legend #brRP {
+    grid-area: rankBRrank;
+    font-size: clamp(10px, 1.5vw, 15px);
+    padding: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.fav-legend #arenaRankTitle {
+    grid-area: rankAtitle;
+    font-size: clamp(13px, 1.5vw, 20px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.fav-legend #arenaRankImage {
+    grid-area: rankAlogo;
+    display: flex;
+    justify-content: center;
+    width: 10vw;
+}
+
+@media (max-width: 700px) {
+    .fav-legend #arenaRankImage {
+        grid-area: rankAlogo;
+        display: flex;
+        justify-content: center;
+        width: clamp(75px, 10vw, 100px);
+    }
+}
+
+.fav-legend #arenaRankName {
+    grid-area: rankArank;
+    font-size: clamp(10px, 1.5vw, 15px);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.fav-legend #arenaRP {
+    grid-area: rankArank;
+    font-size: clamp(10px, 1.5vw, 15px);
+    padding: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+#lifetime-stat-title {
+    font-size: clamp(15px, 2.5vw, 25px);
+}
+
+#matches-played-title {
+    font-size: clamp(11px, 1.5vw, 16px);
 }
 
 .main-stats {
@@ -242,6 +526,16 @@ aside h3 {
     grid-gap: 5px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
+
+@media (max-width: 700px) {
+    .main-stats {
+        border-radius: 10px;
+        display: grid;
+        grid-gap: 5px;
+        grid-template-columns: 1fr;
+    }
+}
+
 
 .main-stats div {
     border-radius: 7px;
@@ -252,27 +546,185 @@ aside h3 {
     align-items: center;
 }
 
-.main-stats div h4{
+.main-stats div h4 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 12px;
+    font-size: clamp(8px, 1vw, 12px);
 }
 
-.main-stats div p{
+.main-stats div p {
     margin: 0 0 1em 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 20px;
+    font-size: clamp(13px, 2vw, 20px);
     font-weight: bold;
 }
 
 .match-history div {
-    height: 5em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: auto;
+    color: rgb(214, 214, 214);
+    display: grid;
+    grid-template-columns: 10% 30% 30% 30%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: "portrait lgnd kills rank"
+        "portrait lgnd dmg rankChange";
 }
+
+@media (max-width: 700px) {
+    .match-history div {
+        height: auto;
+        padding: 1em;
+        color: rgb(214, 214, 214);
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 55% 15% 15% 15%;
+        grid-template-areas: "portrait portrait"
+            "lgnd lgnd"
+            "kills rank"
+            "dmg rankChange";
+    }
+}
+
+@media (max-width: 450px) {
+    .match-history div {
+        height: auto;
+        padding: 1em;
+        color: rgb(214, 214, 214);
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 50% 10% 10% 10% 10% 10%;
+        grid-template-areas: "portrait"
+            "lgnd"
+            "kills"
+            "dmg"
+            "rank"
+            "rankChange";
+    }
+}
+
+.match-history img {
+    grid-area: portrait;
+    width: clamp(35px, 3vw, 150px);
+    margin: auto;
+    border: 2px rgb(214, 214, 214) solid;
+    margin-left: 10px;
+}
+
+@media (max-width: 700px) {
+    .match-history img {
+        grid-area: portrait;
+        width: clamp(35px, 3vw, 150px);
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px rgb(214, 214, 214) solid;
+    }
+}
+
+.match-history #legendUsed {
+    grid-area: lgnd;
+    font-size: clamp(10px, 1vw, 15px);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-left: 10px;
+}
+
+@media (max-width: 700px) {
+    .match-history #legendUsed {
+        grid-area: lgnd;
+        margin: 0;
+        padding: 1em;
+        font-size: clamp(10px, 1vw, 15px);
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+}
+
+.match-history #killsPerGame {
+    grid-area: kills;
+    margin-top: 20px;
+    font-size: clamp(10px, 1vw, 15px);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+@media (max-width: 700px) {
+    .match-history #killsPerGame {
+        grid-area: kills;
+        margin: 0;
+        font-size: clamp(10px, 1vw, 15px);
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+}
+
+.match-history #rankChange {
+    grid-area: rankChange;
+    margin-bottom: 20px;
+    font-size: clamp(10px, 1vw, 15px);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+@media (max-width: 700px) {
+    .match-history #rankChange {
+        grid-area: rankChange;
+        margin: 0;
+        font-size: clamp(10px, 1vw, 15px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.match-history #rankScore {
+    grid-area: rank;
+    margin-top: 20px;
+    font-size: clamp(10px, 1vw, 15px);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+@media (max-width: 700px) {
+    .match-history #rankScore {
+        grid-area: rank;
+        margin: 0;
+        font-size: clamp(10px, 1vw, 15px);
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+}
+
+.match-history #matchDamage {
+    grid-area: dmg;
+    margin-bottom: 20px;
+    font-size: clamp(10px, 1vw, 15px);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+@media (max-width: 700px) {
+    .match-history #matchDamage {
+        grid-area: dmg;
+        margin: 0;
+        font-size: clamp(10px, 1vw, 15px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
 .match-history div:nth-child(odd) {
     background: rgb(121, 121, 121);
 }
+
 .match-history div:nth-child(even) {
     background: rgb(100, 100, 100);
 }
@@ -281,6 +733,23 @@ aside h3 {
     grid-area: footer;
     width: auto;
     background: rgb(201, 50, 50);
+}
+
+.lifetime-stat-footer a {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lifetime-stat-footer #link1 {
+    padding-right: 15px;
+}
+
+.lifetime-stat-footer #link2 {
+    padding-left: 15px;
 }
 
 /* ---------------------------------------------REFERENCE PAGE--------------------------------------------- */

@@ -33,13 +33,6 @@ searchInput.addEventListener('search', () => {
     location.href = `/profile/${platform}/${username}`
 });
 
-
-
-
-
-
-
-
 function styles(platform) {
     const xblBtn = document.querySelector('#xbl');
     const psnBtn = document.querySelector('#psn');
@@ -49,77 +42,50 @@ function styles(platform) {
         //APPLY STYLES
         xblBtn.style.backgroundColor = "Green";
         xblBtn.style.width = "75px";
-        xblBtn.style.backgroundImage = "url(images/xbox-grey.png)"
+        xblBtn.style.backgroundImage = "url(/images/xbox-grey.png)"
 
         //UNDO STYLES
-        //xbox
-        // xblBtn.removeEventListener('mouseover', xboxHoverOn);
-        // xblBtn.removeEventListener('mouseout', xboxHoverOff);
         //playstation
         psnBtn.style.backgroundColor = "Grey";
         psnBtn.style.width = "50px";
-        psnBtn.style.backgroundImage = "url(images/ps-black.png)"
+        psnBtn.style.backgroundImage = "url(/images/ps-black.png)"
         //pc
         pcBtn.style.backgroundColor = "Grey";
         pcBtn.style.width = "50px";
-        pcBtn.style.backgroundImage = "url(images/pc-black.png)"
-
-
-        // psnBtn.addEventListener('mouseover', psHoverOn);
-        // psnBtn.addEventListener('mouseout', psHoverOff);
-
-        // pcBtn.addEventListener('mouseover', pcHoverOn);
-        // pcBtn.addEventListener('mouseout', pcHoverOff);
+        pcBtn.style.backgroundImage = "url(/images/pc-black.png)"
     }
 
     if (platform === psnBtn) {
         //APPLY STYLES
         psnBtn.style.backgroundColor = "Blue";
         psnBtn.style.width = "75px";
-        psnBtn.style.backgroundImage = "url(images/ps-grey.png)"
+        psnBtn.style.backgroundImage = "url(/images/ps-grey.png)"
 
         //UNDO STYLES
-        //playstation
-        // psnBtn.removeEventListener('mouseover', psHoverOn);
-        // psnBtn.removeEventListener('mouseout', psHoverOff);
         //xbox
         xblBtn.style.backgroundColor = "Grey";
         xblBtn.style.width = "50px";
-        xblBtn.style.backgroundImage = "url(images/xbox-black.png)"
+        xblBtn.style.backgroundImage = "url(/images/xbox-black.png)"
         //pc
         pcBtn.style.backgroundColor = "Grey";
         pcBtn.style.width = "50px";
-        pcBtn.style.backgroundImage = "url(images/pc-black.png)"
-
-
-        // xblBtn.addEventListener('mouseover', xboxHoverOn);
-        // xblBtn.addEventListener('mouseout', xboxHoverOff);
-
-        // pcBtn.addEventListener('mouseover', pcHoverOn);
-        // pcBtn.addEventListener('mouseout', pcHoverOff);
+        pcBtn.style.backgroundImage = "url(/images/pc-black.png)"
     }
 
     if (platform === pcBtn) {
         //APPLY STYLES
         pcBtn.style.backgroundColor = "Orange";
         pcBtn.style.width = "75px";
-        pcBtn.style.backgroundImage = "url(images/pc-grey.png)"
+        pcBtn.style.backgroundImage = "url(/images/pc-grey.png)"
 
         //UNDO STYLES
         //xbox
         xblBtn.style.backgroundColor = "Grey";
         xblBtn.style.width = "50px";
-        xblBtn.style.backgroundImage = "url(images/xbox-black.png)"
+        xblBtn.style.backgroundImage = "url(/images/xbox-black.png)"
         //playstation
         psnBtn.style.backgroundColor = "Grey";
         psnBtn.style.width = "50px";
-        psnBtn.style.backgroundImage = "url(images/ps-black.png)"
-
-
-        // xblBtn.addEventListener('mouseover', xboxHoverOn);
-        // xblBtn.addEventListener('mouseout', xboxHoverOff);
-
-        // pcBtn.addEventListener('mouseover', pcHoverOn);
-        // pcBtn.addEventListener('mouseout', pcHoverOff);
+        psnBtn.style.backgroundImage = "url(/images/ps-black.png)"
     }
 }

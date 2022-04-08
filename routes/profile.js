@@ -28,27 +28,19 @@ router.get('/:platform/:username', async (req, resp) => {
             })
         }
 
-        test(api)
+        resp.render('profile', { api: api, sessions: sessions })
 
-        resp.render('profile', { api: api })
-
-        console.log(api)
-        console.log(sessions)
-        console.log(req.params.platform, req.params.username);
+        // console.log(api)
+        // console.log(sessions)
+        // console.log(req.params.platform, req.params.username);
     }
     catch (error) {
         console.log(error);
+
         resp.status(500).json({
             message: 'Server Error'
         })
     }
 })
-
-function test(api) {
-    const name = api.data.platformInfo.platformUserId
-    console.log(name)
-    const level = api.data.segments[0].stats.level.value
-    console.log(level)
-}
 
 module.exports = router;
