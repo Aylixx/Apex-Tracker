@@ -117,7 +117,7 @@
 }
 
 #searchBar {
-    font-size: clamp(15px, 2vw, 20px);
+    font-size: clamp(13px, 2vw, 20px);
     padding-left: 15px;
     padding-right: 10px;
     border-top: 1px solid black;
@@ -199,6 +199,20 @@ footer #link2 {
     }
 }
 
+@media (max-width: 450px) {
+    .container {
+        border-left: 7px white solid;
+        border-right: 7px white solid;
+        background: rgb(65, 65, 65);
+        display: grid;
+        grid-template-columns: 100vw;
+        grid-template-rows: 15vh minmax(80vh, auto) 5vh;
+        grid-template-areas: "header"
+            "main"
+            "footer";
+    }
+}
+
 header {
     /* padding: 0 1em; */
     grid-area: header;
@@ -213,6 +227,14 @@ header {
         display: grid;
         grid-template-rows: 8vh 5vh;
         grid-template-columns: 70vw;
+    }
+}
+
+@media (max-width: 450px) {
+    header {
+        display: grid;
+        grid-template-rows: 8vh 5vh;
+        grid-template-columns: 100vw;
     }
 }
 
@@ -336,7 +358,7 @@ aside h3 {
 
 @media (max-width: 700px) {
     .fav-legend {
-        height: 75vh;
+        height: 725px;
         background: rgb(121, 121, 121);
         border-radius: 10px;
         display: grid;
@@ -356,7 +378,7 @@ aside h3 {
 
 @media (max-width: 450px) {
     .fav-legend {
-        height: 60vh;
+        height: 600px;
         background: rgb(121, 121, 121);
         border-radius: 10px;
         display: grid;
@@ -761,4 +783,21 @@ aside h3 {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+}
+
+.overview-page {
+    background: rgb(201, 50, 50);
+    margin: 3em;
+    display: grid;
+    font-size: large;
+}
+
+.overview-page-logo {
+    display: flex;
+    justify-content: center;
+}
+
+.overview-page h1 {
+    display: flex;
+    justify-content: center;
 }
