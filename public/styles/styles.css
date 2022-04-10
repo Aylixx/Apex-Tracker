@@ -785,9 +785,14 @@ aside h3 {
     align-items: center;
 }
 
+/* ---------------------------------------------OVERVIEW PAGE--------------------------------------------- */
+
 .overview-page {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
     background: rgb(201, 50, 50);
-    margin: 3em;
+    margin-left: 15vw;
+    margin-right: 15vw;
     display: grid;
     font-size: large;
 }
@@ -795,6 +800,10 @@ aside h3 {
 .overview-page-logo {
     display: flex;
     justify-content: center;
+}
+
+.overview-page br {
+    border: 1px solid white;
 }
 
 .overview-page h1 {

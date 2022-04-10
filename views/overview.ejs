@@ -14,16 +14,121 @@
         <a href="/"><img src="/images/LOGO.png" alt=""></a>
     </section>
     <h1>Project Overview</h1>
-    <h3>Things I've Learned</h3>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam fuga doloribus repudiandae odio quam suscipit
-        optio assumenda? Dolorum quod doloremque laudantium nemo natus impedit aut, aliquam quo harum aperiam tempore!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti eius ipsa, vero eveniet eos beatae! Laborum,
-        nostrum quas inventore perspiciatis adipisci doloremque sed minima earum est nihil iusto eligendi obcaecati.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti commodi consequatur atque odit fugiat, alias
-        eum? Voluptas libero perferendis tenetur rerum maiores voluptatem cumque quibusdam rem. Et voluptate ullam
-        voluptas! Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias consectetur debitis dolor at in
-        optio, earum soluta atque, aliquid nemo cum consequatur corrupti quod numquam? Ipsum nesciunt fuga aperiam quas!
+
+    <h2>What it is</h2>
+    <p>
+        This project was an opportunity for me to try and develop a full stack web application from scratch. It's a
+        website that allows users to enter a username for an '<i>Apex Legends</i>' player on a specific platform, and it
+        returns a page displaying their last used Legend, their "main" stats (most common), and some data on their most
+        recent matches played.
     </p>
+
+    <h2>What I Learned</h2>
+
+    <h3>Back End Development</h3>
+    <p>
+        In order for this site to work, I had to make a server. This required me to learn and understand the following:
+        <br>
+        <br>
+        <b>Node.js</b> <br>
+        Node.js is an asynchronous event-driven Javascript runtime. It is used mainly for building scalable network
+        applications and essentially lets you use JavaScript on the local machine instead of just in browser.<br>
+        <br>
+        <b>Express</b><br>
+        Express is a framework for node.js which provides tools for setting up routes and port listening and also helps
+        to more easily render things to the screen with view engines like EJS<br>
+        <br>
+        <b>Routing</b><br>
+        Routing refers to how an applications URLs, or endpoints, respond to client requests.
+    </p>
+
+    <p>
+        While developing the back end of this project I also learned best practices for organising a
+        full stack project like this. For example, it seemed to be standard to break the project up into three main
+        categories: public, routes, and views. <br>
+        <br>
+        <b>Public</b>
+        <br>
+        The Public folder conatins all files that are visible to the user through things like Inspect Elements in
+        Chrome. This would include things like images used (not from API) and any CSS and JavaScript files that are okay
+        to be publicly seen. <br>
+        <br>
+        <b>Routes</b>
+        <br>
+        The Routes folder contains the all the routing files. For example, this page is rendered by a function inside a
+        routes file. Routes and page rendering could all be done inside the server file, but this is intended to clean
+        up the workspace and make things much more easy to follow and understand. The profile stats page is also handled
+        within a routes file, this file handles the fetch for API and handles errors. If all that code was in
+        'server.js' it
+        would get messy fairly quickly <br>
+        <br>
+        <b>Views</b>
+        <br>
+        The Views folder contains all of the HTML Documents for the routes functions to render. They are not HTML files
+        however, they are EJS files. A special file that Express uses to render HTML to the page. EJS stands for
+        Embedded JavaScript, and they allow JavaScript to be written right inside of the HTML Document. When rendered
+        though, the JavaScript does not show up inside the Inspect Element.
+    </p>
+
+    <h3>Front End Development</h3>
+    <p>
+        I decided to do the front end development of this application with no frameworks, such as Vue, React, Angular,
+        Bootstrap, Tailwind etc. I wanted to sharpen my skills in vanilla JavaScript, HTML and CSS. This may have been
+        more tedious, but I believe it expanded my knowledge a lot. <br>
+        <br>
+        <b>HTML and EJS</b> <br>
+        The base HTML for this project was fairly simple. I kept my documents organized with clearly worded 'id' and
+        'class' attributes, as well as appropriate element tags to assist in styling the site with CSS. All of the HTML
+        was written within EJS files, as the documents were altered by JavaScript to dynamically alter the contents
+        based on user interaction. Because most of the contents of the stats page is changed by JavaScript I learned a
+        lot about EJS syntax, which was entirely new to me, as previously I had only altered HTML with things like
+        'document.querySelector()'. <br>
+        <br>
+        <b>JavaScript</b> <br>
+        I wrote most of the JavaScript within the EJS files which recieved the API data from the server. This allowed me
+        to alter the page contents the way I wanted right inside one file. I did, however, write one Script which
+        utilized the familiar 'document.querySelector()', as I needed to add event listeners to the search bars, as well
+        as dynamically change the styles of the platform buttons based on what the user clicks on. Having this code
+        in a seperate script kept my EJS files clean and uncluttered. <br>
+        <br>
+        <b>CSS</b><br>
+        Doing CSS with no frameworks was tedious, but I learned a lot. I become fairly fimiliar with flexboxes and grids
+        to rearrange content that could scale dynamically with screen sizes. I also leanred a lot about CSS functions
+        that would and would not work with certain browsers and browser versions. This was important when selecting font
+        families and other features, as I wanted it to be accesible to most users. Another thing that I learned is how
+        to change the way the page is laid out depending on screen size, like tablets and mobile devices for example. To
+        do this I had to do research on media queries and breakpoints and I spent some time making this work and look
+        decent. This application does not have to much animation, but in my learning of CSS I explored animation a lot,
+        Unfortunatley I couldn't really think of how to intigrate animation in any big way, but I did decide to animate
+        the platform buttons a little bit.
+    </p>
+
+    <h3>Hosting</h3>
+    <p>
+        After development I leanred all I could about hosting and decided to host my site with Heroku. Heroku is a
+        platform as a service (PaaS) that allows developers to run their applications on the cloud. The reason I chose
+        Heroku is because its free for non-commercial apps such as personal projects. This is why my site name is
+        followed by '.herokuapp.com'. I did learn, however, that I could buy a custom domain name and get Heroku to
+        point to that domain instead, to have a cleaner URL, but for the sake of this project I did not. <br>
+        <br>
+        Heroku works by reading the files from a git repository, so I also had to ensure that I properly pushed my
+        project to GitHub. I learned quite a lot about github throughout university, so this wasn't too difficult.
+        Updating off of the repository is nice because whenever I want to make a change to my site I just have to update
+        my git repository and Heroku will automatically update the application, because I set it up that way.
+
+    </p>
+
+    <h3>Copyright</h3>
+    <p>I had the opportunity during the development of this project to speak with a Copyright Advisor at MRU to discuss
+        the laws and how they might apply to my application. Unfortunately copyright law on API data is unclear at this
+        time, but since this is a school project it falls under fair use. If, however, I kept hosting this site and
+        shared it with bodies outside of the school system, it could fall outside the realm of fair use and I would have
+        to deal with any consequences that may come my way. To further protect myself, I have cited things I have used
+        outside of the API, such as images, and refrenced them in a page on the site. <br>
+        <br>
+        I do not own any images or data present on the website.
+    </p>
+
 
 </body>
 
