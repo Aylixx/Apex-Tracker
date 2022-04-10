@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body class="error-page">
+    <% const errMsg=api.errors[0].message %>
+        <h2>Oops!</h2>
+        <h2 id="error-message">
+            <%= errMsg %>
+        </h2>
+        <h3>Make sure that you typed the username correctly and that you chose the correct platform</h3>
+        <a href="/">Return Home</a>
+</body>
+
+</html>

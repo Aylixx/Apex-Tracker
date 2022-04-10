@@ -201,15 +201,14 @@ footer #link2 {
 
 @media (max-width: 450px) {
     .container {
-        border-left: 7px white solid;
-        border-right: 7px white solid;
-        background: rgb(65, 65, 65);
+        /* background: rgb(65, 65, 65); */
         display: grid;
         grid-template-columns: 100vw;
         grid-template-rows: 15vh minmax(80vh, auto) 5vh;
         grid-template-areas: "header"
             "main"
             "footer";
+        border: none;
     }
 }
 
@@ -751,6 +750,13 @@ aside h3 {
     background: rgb(100, 100, 100);
 }
 
+.match-history #no-recent-matches {
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .lifetime-stat-footer {
     grid-area: footer;
     width: auto;
@@ -797,6 +803,21 @@ aside h3 {
     font-size: large;
 }
 
+.overview-page main {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    margin-top: 1em;
+    display: grid;
+    grid-gap: 1em;
+    font-size: large;
+}
+
+.overview-page .body {
+    background: rgb(65, 65, 65);
+    border-radius: 10px;
+    padding: 1em 3em;
+}
+
 .overview-page-logo {
     display: flex;
     justify-content: center;
@@ -809,4 +830,36 @@ aside h3 {
 .overview-page h1 {
     display: flex;
     justify-content: center;
+}
+
+/* ---------------------------------------------OVERVIEW PAGE--------------------------------------------- */
+
+.error-page {
+    background: rgb(201, 50, 50);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    font-size: clamp(12px, 2vw, 25px);
+    height: 90vh;
+    width: 99vw;
+    margin: 2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-page h3 {
+    margin: 2em 23vw;
+    padding: 1em;
+    font-size: clamp(10px, 2vw, 21px);
+    border: 3px white dotted;
+}
+
+.error-page #error-message {
+    text-align: center;
+}
+
+.error-page a {
+    font-size: clamp(15px, 2vw, 25px);
+    text-decoration: none;
 }
