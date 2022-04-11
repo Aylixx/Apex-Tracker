@@ -783,12 +783,37 @@ aside h3 {
 /* ---------------------------------------------REFERENCE PAGE--------------------------------------------- */
 
 .reference-page {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
     background: rgb(201, 50, 50);
-    display: flex;
+    margin-left: 15vw;
+    margin-right: 15vw;
+    display: grid;
     font-size: large;
+}
+
+.reference-page-logo {
+    display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
+}
+
+.reference-page h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reference-page #reference-body {
+    background: rgb(65, 65, 65);
+    border-radius: 10px;
+    padding: 1em 3em;
+}
+
+.reference-page #note {
+    margin-top: 3em;
+    border: 2px dotted white;
+    padding: 1em;
 }
 
 /* ---------------------------------------------OVERVIEW PAGE--------------------------------------------- */
