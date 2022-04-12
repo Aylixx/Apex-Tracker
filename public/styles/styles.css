@@ -10,7 +10,7 @@
 .home-page-main {
     background-image: url(images/Test.png), url(images/BG.png);
     background-repeat: no-repeat;
-    background-size: clamp(950px, 100vw, 1000px), cover;
+    background-size: clamp(95vh, 100vw, 100vh), cover;
     background-position: center;
     display: flex;
     justify-content: center;
