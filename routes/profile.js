@@ -25,16 +25,10 @@ router.get('/:platform/:username', async (req, resp) => {
             console.log(errMsg)
 
             return resp.status(404).render('error', { api: api })
-            // return resp.status(404).json({
-            //     message: `${errMsg}`
-            // })
         }
 
         resp.render('profile', { api: api, sessions: sessions })
 
-        // console.log(api)
-        // console.log(sessions)
-        // console.log(req.params.platform, req.params.username);
     }
     catch (error) {
         console.log(error);
